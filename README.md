@@ -8,7 +8,7 @@ $$  P(c) = \mathcal{N}(c|c_\mathrm{int}, \sigma_c) \otimes
 \end{cases} $$
 
 ### Fitting for the full colour distribution
-You need a 'df' pandas dataframe with columns 'c' and 'c_err'.
+You need a `df` pandas dataframe with columns `c` and `c_err`.
 
     #Initialising the colour object
     a = sncolor.ColorFit.from_dataset(df)
@@ -17,7 +17,7 @@ You need a 'df' pandas dataframe with columns 'c' and 'c_err'.
     print(a.mu_int, a.mu_int_err)
     print(a.sig_int, a.sig_int_err)
     print(a.tau_dust, a.tau_dust_err)
-You can also access the full iminuit object with 'a.minuit'.
+You can also access the full iminuit object with `a.minuit`.
 
 ### Plotting the colour distribution
 You can plot either the full distribution, or only the intrinsic or dust part.
