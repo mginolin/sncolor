@@ -1,5 +1,3 @@
-import ztfidr
-from ztfidr import io
 import numpy as np
 from scipy import optimize
 import matplotlib.pyplot as plt
@@ -14,22 +12,11 @@ from scipy import signal
 from scipy import integrate
 from ztfidr.sample import Sample
 from scipy.stats import multivariate_normal
-import hubblizer
-import alldata
 from scipy.interpolate import CubicSpline
 
 class ColorFit:
     def __init__(self, data):
         self._data = data         
-
-    @classmethod
-    def from_ztf(cls, red_min=0, red_max=0.06, x1_min=-3.5, x1_max=3.5, c_min=-0.38, c_max=0.75,
-                 x1_err_max=1, c_err_max=0.3, fitprob_min=1e-25, local=True, good_classifications=['snia', 'snia-norm', 'snia-pec-91t', 'snia-pec', 'snia-pec-91bg'], good_redshifts=['z_snid', 'z_gal', 'z_unknown', 'z_nonSEDm', 'z_SEDm'], salt3=False):
-        data = hubblizer.data.load_clean_data(red_min=red_min, red_max=red_max, 
-                                              x1_min=x1_min, x1_max=x1_max, c_min=c_min, c_max=c_max,
-                                              x1_err_max=x1_err_max, c_err_max=c_err_max, fitprob_min=fitprob_min, local=local, 
-                                              good_classifications=good_classifications, good_redshifts=good_redshifts)
-        return cls(data)
     
     @classmethod
     def from_dataset(cls, data):
