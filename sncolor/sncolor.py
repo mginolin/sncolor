@@ -221,7 +221,7 @@ def get_loglikelihood_tot(data, xmin=-1, step=1e-3):
             dust = np.zeros(len(xrange))
             dust[xrange>0] = np.exp(-xrange[xrange>0]/a)/a
             full = np.convolve(dust, norm.pdf(xrange, loc=mu, scale=sig), mode='same')
-            area = integrate.simps(y=full, x=xrange)
+            area = integrate.simpson(y=full, x=xrange)
             prob_func = full/area
             ind = np.array((data-xmin)/step)
             return - np.sum(np.log(prob_func[ind.astype(int)]))
@@ -236,7 +236,7 @@ def get_loglikelihood_dustcut(data, mu, sig, xmin=-1, step=1e-3):
             dust = np.zeros(len(xrange))
             dust[xrange>0] = np.exp(-xrange[xrange>0]/a)/a
             full = np.convolve(dust, norm.pdf(xrange, loc=mu, scale=sig), mode='same')
-            area = integrate.simps(y=full, x=xrange)
+            area = integrate.simpson(y=full, x=xrange)
             prob_func = full/area
             ind = np.array((data-xmin)/step)
             return - np.sum(np.log(prob_func[ind.astype(int)]))
@@ -288,6 +288,6 @@ def fit_function_tot(data, a, mu, sig): ##this might return the correct solution
     dust = np.zeros(len(data))
     dust[data>0] = np.exp(-data[data>0]/a)/a
     full = np.convolve(dust, norm.pdf(data, loc=mu, scale=sig), mode='same')
-    area = integrate.simps(y=full, x=data)
+    area = integrate.simpson(y=full, x=data)
     return full/area
 
