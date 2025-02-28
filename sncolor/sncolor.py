@@ -10,7 +10,6 @@ from scipy.special import expit, logit
 from scipy import stats
 from scipy import signal
 from scipy import integrate
-from ztfidr.sample import Sample
 from scipy.stats import multivariate_normal
 from scipy.interpolate import CubicSpline
 
